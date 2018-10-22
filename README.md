@@ -1,3 +1,3 @@
-# WorldCup
+# daily-node
 
-## 腾讯世界杯H5赛程魔方
+## Learn Node, Know Node
