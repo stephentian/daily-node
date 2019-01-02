@@ -1,5 +1,6 @@
-var greet = require('./hello');
+const hello = require('./hello');
 
 var s = "Stephen";
 
-greet(s)
+hello.greet(s)
+hello.hi()
