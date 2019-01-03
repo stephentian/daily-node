@@ -39,15 +39,30 @@
 // 原理
 // 在 common.js 文件中，可以得知 node 会将整个 hello.js 文件放入包装函数 load 中执行
 
-var load = function (exports, module) {
-  // hello.js 文件内容
-  // ...
-  return module.exports
-}
-
 var module = {
   id: '1',
   exports: {}
 }
 
-var exports = {}
+var load = function (exports, module) {
+  // hello.js 文件内容
+  // ...
+  // load 函数返回
+  function hello() {
+    console.log('Hello, world!');
+  }
+
+  function greet(name) {
+    console.log('Hello, ' + name + '!');
+  }
+  exports = {
+    hello: hello,
+    greet: greet
+  }
+
+  console.log(exports)
+  console.log(module.exports)
+  return module.exports
+}
+
+var exported = load(module.exports, module)

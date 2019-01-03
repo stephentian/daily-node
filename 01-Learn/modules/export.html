@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>module.exports & exports</title>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    var module = {
+      id: '1',
+      exports: {}
+    };
+    var exports = module.exports;
+    console.log(module.exports === exports)
+    exports.hi = function () {
+      console.log("hello")
+    }
+    // exports = {
+    //   hi: '你好'
+    // }
+    console.log('exports:', exports)
+    console.log('module.exports:', module.exports)
+    console.log(module.exports === exports)
+  </script>
+</body>
+
+</html>
