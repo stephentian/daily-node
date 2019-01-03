@@ -35,3 +35,19 @@
 //   hello: hello,
 //   greet: greet
 // }
+
+// 原理
+// 在 common.js 文件中，可以得知 node 会将整个 hello.js 文件放入包装函数 load 中执行
+
+var load = function (exports, module) {
+  // hello.js 文件内容
+  // ...
+  return module.exports
+}
+
+var module = {
+  id: '1',
+  exports: {}
+}
+
+var exports = {}
