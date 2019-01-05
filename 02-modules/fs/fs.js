@@ -19,10 +19,12 @@
 // var data = getJSONSync('http://example.com/ajax')
 // 同步需要等待返回，好处是代码简单
 
+
 // 1. 异步读写文件
 
 // var fs = require('fs')
-// fs.readFile('text1.txt', 'utf-8', function (err, data) {
+// 普通读取文件方法
+// fs.readFile('text3.txt', 'utf-8', function (err, data) {
 //   if (err) {
 //     console.log(err)
 //   } else {
@@ -32,6 +34,17 @@
 
 // 封装一个方法，传给方法一个读取文件的路径，能读取文件，并返回内容
 const fs = require('fs')
-const path = require('path')
 
-//
+// 封装方法
+function getFileByPath(fPath) {
+  fs.readFile(fPath, 'utf-8', (err, data) => {
+    if (err) throw err
+    console.log(data)
+    return data
+  })
+}
+
+var result = getFileByPath('./text2.txt')
+console.log(result)
+// undefined
+// 因为是异步读取，所以 result 会为 undefined
