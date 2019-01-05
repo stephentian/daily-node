@@ -44,8 +44,8 @@
 
 
 // 3. 判断 javascript 执行环境
-if (typeof (window) === 'undefined') {
-  console.log('node.js')
-} else {
-  console.log('browser')
-}
+// if (typeof (window) === 'undefined') {
+//   console.log('node.js')
+// } else {
+//   console.log('browser')
+// }
