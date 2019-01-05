@@ -34,7 +34,6 @@
 
 // 封装一个方法，传给方法一个读取文件的路径，能读取文件，并返回内容
 const fs = require('fs')
-
 // 封装方法
 function getFileByPath(fPath) {
   fs.readFile(fPath, 'utf-8', (err, data) => {
@@ -43,8 +42,21 @@ function getFileByPath(fPath) {
     return data
   })
 }
-
 var result = getFileByPath('./text2.txt')
 console.log(result)
 // undefined
+// 2222
 // 因为是异步读取，所以 result 会为 undefined
+// 随后输出 text2 内容
+
+// 读取二进制文件时，不传文件编码格式，回调函数的 data 参数将返回一个 Buffer 对象
+// Buffer 对象是包含零个或任意个字节的数组(注意和 Array 不同)
+// Buffer 对象可以和 String 转换
+
+// Buffer --> String
+// var text = data.toString('utf-8')
+// console.log(text)
+
+// String --> Buffer
+// var buf = Buffer.from(text, 'utf-8')
+// console.log(buf)
