@@ -73,5 +73,58 @@
 //   // 出错
 // }
 
+
 // 3. 写文件
-const fs = require('fs')
+// const fs = require('fs')
+// const data = 'Hello, Node.js'
+// fs.writeFile('text2.txt', data, function (err) {
+//   if (err) {
+//     console.log(err)
+//   } else {
+//     console.log('OK! File has changed')
+//   }
+// })
+// 写文件也有一个同步方法 writeFileSync()
+// fs.writeFileSync('text2', data)
+
+// 传入 data 为 String, 默认按 UTF-8 编码写入文件
+// 若为 Buffer, 则写入二进制文件
+
+
+// 4. 获取文件大小，创建时间等
+// fs.stat
+// 返回一个 Stat 对象，告诉我们文件或目录的详细信息
+// const fs = require('fs')
+// fs.stat('text2.txt', function (err, stat) {
+//   if (err) {
+//     console.log(err)
+//   } else {
+//     // 是否是文件
+//     console.log('isFile: ', stat.isFile())
+//     // 是否是目录
+//     console.log('isDirectory: ', stat.isDirectory())
+//     if (stat.isFile()) {
+//       // 文件大小
+//       console.log('size: ', stat.size)
+//       // 创建时间 Date 对象
+//       console.log('birth time: ', stat.birthtime)
+//       // 修改时间 Date 对象
+//       console.log('modified time: ', stat.mtime)
+//     }
+//   }
+// })
+
+// stat 同步方法 statSync
+// const fs = require('fs')
+// try {
+//   const result = fs.statSync('text2.txt')
+//   console.log('isFile: ', result.isFile())
+//   console.log('isDirectory: ', result.isDirectory())
+//   if (result.isFile()) {
+//     console.log('size: ', result.size)
+//     console.log('birth time: ', result.birthtime)
+//     console.log('modified time: ', result.mtime)
+//   }
+// } catch (err) {
+//   console.log(err)
+// }
