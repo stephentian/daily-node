@@ -21,7 +21,6 @@
 
 
 // 1. 异步读写文件
-
 // var fs = require('fs')
 // 普通读取文件方法
 // fs.readFile('text3.txt', 'utf-8', function (err, data) {
@@ -33,17 +32,16 @@
 // })
 
 // 封装一个方法，传给方法一个读取文件的路径，能读取文件，并返回内容
-const fs = require('fs')
-// 封装方法
-function getFileByPath(fPath) {
-  fs.readFile(fPath, 'utf-8', (err, data) => {
-    if (err) throw err
-    console.log(data)
-    return data
-  })
-}
-var result = getFileByPath('./text2.txt')
-console.log(result)
+// const fs = require('fs')
+// function getFileByPath(fPath) {
+//   fs.readFile(fPath, 'utf-8', (err, data) => {
+//     if (err) throw err
+//     console.log(data)
+//     return data
+//   })
+// }
+// var result = getFileByPath('./text2.txt')
+// console.log(result)
 // undefined
 // 2222
 // 因为是异步读取，所以 result 会为 undefined
@@ -60,3 +58,20 @@ console.log(result)
 // String --> Buffer
 // var buf = Buffer.from(text, 'utf-8')
 // console.log(buf)
+
+
+// 2. 同步读取文件
+// var fs = require('fs')
+// var data = fs.readFileSync('text1.txt', 'utf-8')
+// console.log(data)
+// 文件1
+// 如果同步读取文件发生错误，需要用 try...catch 捕获错误
+// try {
+//   var data = fs.readFileSync('text1.txt', 'utf-8')
+//   console.log(data)
+// } catch(err) {
+//   // 出错
+// }
+
+// 3. 写文件
+const fs = require('fs')
