@@ -20,7 +20,7 @@
 // 同步需要等待返回，好处是代码简单
 
 
-// 1. 异步读写文件
+// 1. 异步读取文件
 // var fs = require('fs')
 // 普通读取文件方法
 // fs.readFile('text3.txt', 'utf-8', function (err, data) {
@@ -128,3 +128,12 @@
 // } catch (err) {
 //   console.log(err)
 // }
+
+
+
+// 5. 读取文件夹文件数量
+// 数组形式
+// const fs = require('fs')
+// fs.readdir('.', 'utf-8', (err, files) => {
+//   console.log(files)
+// })
