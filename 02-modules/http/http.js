@@ -63,30 +63,19 @@ const server = http.createServer(function (req, res) {
   const filepath = path.join(root, pathname)
   // 获取文件状态
   fs.stat(filepath, function (err, stats) {
-    // if (!err && stats.isFile()) {
-    //   // 若没报错并且文件存在
-    //   console.log('200', req.url)
-    //   // 发送 200 响应
-    //   res.writeHead(200)
-    //   // 将文件导向 response
-    //   fs.createReadStream(filepath).pipe(res)
-    // } else {
-    //   // 出错或文件不存在
-    //   console.log('404', req.url)
-    //   // 发送 404 响应
-    //   res.writeHead(404)
-    //   res.end('404 NOT Found !')
-    // }
-
-    if (err) {
-      res.writeHead(404)
-      res.end('404 ! Not Found !')
-    } else if (!err && stats.isFile()) {
-      console.log('isFile')
+    if (!err && stats.isFile()) {
+      // 若没报错并且文件存在
+      console.log('200', req.url)
+      // 发送 200 响应
       res.writeHead(200)
+      // 将文件导向 response
       fs.createReadStream(filepath).pipe(res)
-    } else if (!err && stats.isDirectory()) {
-      fs.readdir(filepath, 'utf-8', (err, files) => {})
+    } else {
+      // 出错或文件不存在
+      console.log('404', req.url)
+      // 发送 404 响应
+      res.writeHead(404)
+      res.end('404 NOT Found !')
     }
   })
 })
