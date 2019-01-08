@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "start": "node Server.js"
+  },
   "devDependencies": {
     "koa": "^2.6.2"
   }
