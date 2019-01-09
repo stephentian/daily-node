@@ -44,3 +44,19 @@ app.use(async (ctx, next) => {
 
 app.listen(3000)
 console.log('Server runnig at port 3000 !')
+
+// 调用 app.use() 的顺序决定了 middleware 的顺序
+// 如果一个 middleware 没有调用 await next(), 后续的 middleware 将不再执行
+
+// 例如，一个检测用户权限的 middleware 可以决定是否继续请求处理，还是直接返回 403 错误
+app.use(async (ctx, next) => {
+  if (await checkUserPermisson(ctx)) {
+    await next()
+  } else {
+    ctx.response.status = 403
+  }
+})
+
+// 注意 ctx 对象的一些简写
+// ctx.url 相当于 ctx.request.url
+// ctx.type 相当于 ctx.response.type
