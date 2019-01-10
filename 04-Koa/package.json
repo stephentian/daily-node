@@ -3,6 +3,7 @@
     "start": "node Server.js"
   },
   "devDependencies": {
-    "koa": "^2.6.2"
+    "koa": "^2.6.2",
+    "koa-router": "7.0.0"
   }
 }
