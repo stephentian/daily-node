@@ -5,5 +5,8 @@
   "devDependencies": {
     "koa": "^2.6.2",
     "koa-router": "7.0.0"
+  },
+  "dependencies": {
+    "koa-bodyparser": "^4.2.1"
   }
 }
