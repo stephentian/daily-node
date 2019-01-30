@@ -1,13 +1,17 @@
 # MongoDB
 > MongoDB 是一个基于分布式文件存储的开源数据库系统
 
-文件存储：MongoDB 将数据存储为一个文档, 数据结构由键值对(key => value) 组成。文档类似于 JSON 对象。字段值可以包含其他文档，数据及文档数组。
-分布式：数据可以存储在多个物理服务器上
+**文件存储**：MongoDB 将数据存储为一个文档, 数据结构由键值对(key => value) 组成。文档类似于 JSON 对象。字段值可以包含其他文档，数据及文档数组。
+**分布式**：数据可以存储在多个物理服务器上
+
+---
 
 ## 目录
 
 * [基本概念](#基本概念)
   - [ObjectId 构成](#objectid-构成)
+
+---
 
 ## 基本概念
 
@@ -22,15 +26,26 @@ MySQL 等关系型数据库，主键是设置成自增的，但是在分布式�
 * 2 字节： 生成此 _id 的进程
 * 3 字节： 由一个随机数开始的计数器生成的值
 
+## MongoDB 的基本操作
+
 ### 插入文档
 
+#### insert
+
 `db.collections.insert({})`
+
+#### save
+
 `db.collections.save({})`
 
 save =  insert or update  
 
+
+---
+
 ### 更新文档
 
+#### update
 ```
 db.collection.update(
   {}, // query 查询条件，类似 sql update 查询中 where 后面的
@@ -43,5 +58,28 @@ db.collection.update(
 )
 ```
 
+#### save
+```
+db.collection.save(
+   <document>, // document : 文档数据
+   {
+     writeConcern: <document> // 可选，抛出异常的级别
+   }
+)
+```
 
-## MongoDB 的基本操作
+---
+### 删除文档
+
+> 在执行remove()函数前先执行find()命令来判断执行的条件是否正确，这是一个好的习惯!
+
+#### remove
+```
+db.collection.remove(
+   <query>, // (可选)删除的文档的条件
+   {
+     justOne: <boolean>, // (可选)如果设为 true 或 1，则只删除一个文档，如果不设置该参数，或使用默认值 false，则删除所有匹配条件的文档
+     writeConcern: <document> // (可选)抛出异常的级别
+   }
+)
+```
