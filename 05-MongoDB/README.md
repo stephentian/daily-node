@@ -10,6 +10,8 @@
 
 * [基本概念](#基本概念)
   - [ObjectId 构成](#objectid-构成)
+* [基本操作](#基本操作)
+  - [插入文档](#插入文档)
 
 ---
 
@@ -26,17 +28,35 @@ MySQL 等关系型数据库，主键是设置成自增的，但是在分布式�
 * 2 字节： 生成此 _id 的进程
 * 3 字节： 由一个随机数开始的计数器生成的值
 
-## MongoDB 的基本操作
+## 基本操作
+
+### 数据库操作
+
+`use database`
+
+`show dbs`
+
+`db.dropDatabase()`
+
+### 集合操作
+
+`db.createCollection(name, {options})`
+
+`db.collection.insert({})`
+
+`show collections`
+
+`db.collection.drop()`
 
 ### 插入文档
 
 #### insert
 
-`db.collections.insert({})`
+`db.collection.insert({})`
 
 #### save
 
-`db.collections.save({})`
+`db.collection.save({})`
 
 save =  insert or update  
 
@@ -83,3 +103,24 @@ db.collection.remove(
    }
 )
 ```
+
+#### delete
+
+`db.colletion.deleteMany({})`
+
+删除 status 等于 A 的全部文档
+`db.inventory.deleteMany({ status : "A" })`
+
+删除一个 status 为 B 的文档
+`db.colletion.deleteOne({ status: 'B'})`
+
+---
+### 查询文档
+
+`db.collection.find(query, projection)`
+query ：可选，使用查询操作符指定查询条件
+projection ：可选，使用投影操作符指定返回的键。查询时返回文档中所有键值， 只需省略该参数即可(默认省略)
+
+
+`db.col.find().pretty()`
+以易读的方式来读取数据
