@@ -11,7 +11,19 @@
 * [基本概念](#基本概念)
   - [ObjectId 构成](#objectid-构成)
 * [基本操作](#基本操作)
+  - [数据库操作](#数据库操作)
+  - [集合操作](#集合操作)
   - [插入文档](#插入文档)
+    - insert
+    - save
+  - [更新文档](#更新文档)
+    - update
+    - save
+  - [删除文档](#删除文档)
+    - remove
+    - delete
+  - [查询文档](#查询文档)
+    - find
 
 ---
 
@@ -116,6 +128,8 @@ db.collection.remove(
 
 ---
 ### 查询文档
+
+#### find
 
 `db.collection.find(query, projection)`
 query ：可选，使用查询操作符指定查询条件
