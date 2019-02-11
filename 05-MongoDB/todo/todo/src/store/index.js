@@ -31,10 +31,10 @@ function indexById(todos, id) {
   return -1
 }
 
-import axios from 'axios'
+// import axios from 'axios'
 export default new Vuex.Store({
   state: {
-    msg: 'Todo App',
+    msg: 'Todo List',
     todos: defaultTodo
   },
   // mutations 提供方法
@@ -47,7 +47,7 @@ export default new Vuex.Store({
       state.todos.push(todo)
     },
     remove(state, id) {
-      state.todos.splice(indexById(state.toao, id), 1)
+      state.todos.splice(indexById(state.todos, id), 1)
     },
     reload(state) {
       state.todos = defaultTodo

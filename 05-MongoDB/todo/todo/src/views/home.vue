@@ -14,7 +14,7 @@ import { mapState, mapActions } from 'vuex'
 export default {
   name: 'home',
   components: {
-    TodoList, NewList
+    TodoList, NewTodo
   },
   computed: mapState(['todos', 'msg']),
   data () {
