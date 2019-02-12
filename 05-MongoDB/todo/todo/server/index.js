@@ -3,6 +3,9 @@ const app = express()
 const path = require('path')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
 
 let todos = []
 const public = path.join(__dirname, '/')
@@ -46,6 +49,7 @@ app.get('/api/todos', function (req, res) {
 })
 app.post('/api/todo', function (req, res) {
   todos.push(req.body)
+  console.log(req.body)
   res.end(JSON.stringify(todos))
   rs()
 })
