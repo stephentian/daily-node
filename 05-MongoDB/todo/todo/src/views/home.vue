@@ -10,6 +10,7 @@
 import NewTodo from '@/components/NewTodo.vue'
 import TodoList from '@/components/TodoList.vue'
 import { mapState, mapActions } from 'vuex'
+import axios from 'axios'
 
 export default {
   name: 'home',
@@ -21,6 +22,15 @@ export default {
     return {
       newTodo: ''
     }
+  },
+  mounted () {
+    let url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
+    axios({
+      url: url,
+      method: 'get'
+    })
+      .then(res => { console.log(res.data.chartName) })
+      .catch(err => console.log(err))
   },
   methods: {
     ...mapActions([
