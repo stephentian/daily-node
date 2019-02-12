@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>todolist 后端</title>
+</head>
+
+<body>
+  <div>
+    <a href="/todos">todos</a>
+    <a href="/todo/1">todo/1</a>
+    <button onclick="remove()">remove 1</button>
+    <button onclick="create()">create</button>
+  </div>
+  <script>
+    function remove() {
+      fetch(
+          'api/todo/1', {
+            method: 'DELETE'
+          }
+        ).then(res => console.log(res.json()))
+        .catch(err => console.log(err))
+    }
+
+    function create() {
+      fetch(
+          '/api/todo', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              id: '4',
+              subject: 's4'
+            })
+          }
+        ).then(res => console.log(res))
+        .catch(err => console.log(err))
+    }
+  </script>
+</body>
+
+</html>
