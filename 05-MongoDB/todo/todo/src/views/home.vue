@@ -24,12 +24,12 @@ export default {
     }
   },
   mounted () {
-    let url = 'https://api.coindesk.com/v1/bpi/currentprice.json'
+    let url = '/api/todos'
     axios({
       url: url,
       method: 'get'
     })
-      .then(res => { console.log(res.data.chartName) })
+      .then(res => { console.log(res.data) })
       .catch(err => console.log(err))
   },
   methods: {
