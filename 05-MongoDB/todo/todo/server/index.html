@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>todolist 后端</title>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -17,27 +18,44 @@
   </div>
   <script>
     function remove() {
-      fetch(
-          'api/todo/1', {
-            method: 'DELETE'
-          }
-        ).then(res => console.log(res.json()))
+      // fetch(
+      //     'api/todo/1', {
+      //       method: 'DELETE'
+      //     }
+      //   )
+      axios({
+          url: '/api/todo/5',
+          method: 'DELETE'
+        })
+        .then(res => console.log(res))
         .catch(err => console.log(err))
     }
 
     function create() {
-      fetch(
-          '/api/todo', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              id: '4',
-              subject: 's4'
-            })
-          }
-        ).then(res => console.log(res))
+      // fetch(
+      //     '/api/todo', {
+      //       method: 'POST',
+      //       headers: {
+      //         'Content-Type': 'application/json'
+      //       },
+      //       body: JSON.stringify({
+      //         id: '4',
+      //         subject: 's4'
+      //       })
+      //     }
+      //   )
+      axios({
+          url: 'api/todo',
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          data: JSON.stringify({
+            id: '5',
+            subject: 's5'
+          })
+        })
+        .then(res => console.log(res))
         .catch(err => console.log(err))
     }
   </script>
