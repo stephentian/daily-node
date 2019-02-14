@@ -4,7 +4,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
-  extended: false
+    extended: false
 }))
 
 let todos = []
@@ -12,53 +12,53 @@ const public = path.join(__dirname, '/')
 app.use('/', express.static(public))
 
 const defaultTodo = [{
-    id: 1,
-    subject: 'Eating'
-  },
-  {
-    id: 2,
-    subject: 'Loving'
-  },
-  {
-    id: 3,
-    subject: 'Playing'
-  }
+        id: 1,
+        subject: 'server Eating'
+    },
+    {
+        id: 2,
+        subject: 'server Loving'
+    },
+    {
+        id: 3,
+        subject: 'server Playing'
+    }
 ]
 
 function rs() {
-  todos = defaultTodo
+    todos = defaultTodo
 }
 
 function indexById(id) {
-  for (let i = 0; i < todos.length; i++) {
-    if (id === todos[i].id) return i
-  }
-  return -1
+    for (let i = 0; i < todos.length; i++) {
+        if (id === todos[i].id) return i
+    }
+    return -1
 }
 
 rs()
 
-app.delete('/api/todo/:id', function (req, res) {
-  let userkey = +req.params.id
-  todos.splice(indexById(userkey), 1)
-  res.end(JSON.stringify(todos))
-  rs()
+app.delete('/api/todo/:id', function(req, res) {
+    let userkey = +req.params.id
+    todos.splice(indexById(userkey), 1)
+    res.end(JSON.stringify(todos))
+    // rs()
 })
-app.get('/api/todos', function (req, res) {
-  res.end(JSON.stringify(todos))
+app.get('/api/todos', function(req, res) {
+    res.end(JSON.stringify(todos))
 })
-app.post('/api/todo', function (req, res) {
-  todos.push(req.body)
-  console.log(req.body)
-  res.end(JSON.stringify(todos))
-  rs()
+app.post('/api/todo', function(req, res) {
+    todos.push(req.body)
+    console.log(req.body)
+    res.end(JSON.stringify(todos))
+    rs()
 })
 // app.get('/', function (req, res) {
 //   res.send('Hello World! Express');
 // });
 
-const server = app.listen(8081, function () {
-  const host = server.address().address
-  const port = server.address().port
-  console.log("listening at http://", host, port)
+const server = app.listen(8081, function() {
+    const host = server.address().address
+    const port = server.address().port
+    console.log("listening at http://", host, port)
 })

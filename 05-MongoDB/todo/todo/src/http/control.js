@@ -13,7 +13,10 @@ export function httpadd(subject, cb) {
             headers: [{ 'Content-Type': 'application/json' }],
             data: { id: 6, subject: 's6' }
         })
-        .then(res => cb(res))
+        .then(res => {
+            cb(res)
+            console.log(res.data)
+        })
         .catch(err => console.error(err))
 }
 
@@ -24,6 +27,7 @@ export function httpremove(id, cb) {
         })
         .then(res => {
             cb(res)
+            console.log(res.data)
         })
         .catch(err => console.log(err))
 }
@@ -34,7 +38,8 @@ export function httpreload(cb) {
             url: 'api/todos'
         })
         .then(res => {
-            cb(res)
+            cb(res.data)
+            // console.log(res.data)
         })
         .catch(err => console.log(err))
 }

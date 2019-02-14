@@ -27,6 +27,7 @@ export default {
   },
   mounted () {
     this.reload()
+    // console.log(this.todos)
   }
 }
 </script>

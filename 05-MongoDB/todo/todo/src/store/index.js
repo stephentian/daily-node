@@ -10,16 +10,16 @@ Vue.use(Vuex)
 import { httpadd, httpreload, httpremove } from '../http/control.js'
 
 const defaultTodo = [{
-        id: 1,
-        subject: 'Eating'
+        id: 4,
+        subject: '1Eating'
     },
     {
-        id: 2,
-        subject: 'Loving'
+        id: 5,
+        subject: '2Loving'
     },
     {
-        id: 3,
-        subject: 'Preying'
+        id: 6,
+        subject: '3Preying'
     }
 ]
 

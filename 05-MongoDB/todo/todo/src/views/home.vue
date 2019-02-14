@@ -24,13 +24,13 @@ export default {
     }
   },
   mounted () {
-    let url = '/api/todos'
-    axios({
-      url: url,
-      method: 'get'
-    })
-      .then(res => { console.log(res.data) })
-      .catch(err => console.log(err))
+    // let url = '/api/todos'
+    // axios({
+    //   url: url,
+    //   method: 'get'
+    // })
+    //   .then(res => { console.log(res.data) })
+    //   .catch(err => console.log(err))
   },
   methods: {
     ...mapActions([
