@@ -10,7 +10,7 @@
 import NewTodo from '@/components/NewTodo.vue'
 import TodoList from '@/components/TodoList.vue'
 import { mapState, mapActions } from 'vuex'
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   name: 'home',

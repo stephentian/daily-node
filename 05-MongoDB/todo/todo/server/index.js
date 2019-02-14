@@ -1,16 +1,5 @@
-const express = require('express')
-const app = express()
-const path = require('path')
-const bodyParser = require('body-parser')
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({
-    extended: false
-}))
-
-let todos = []
-const public = path.join(__dirname, '/')
-app.use('/', express.static(public))
-
+const M = require('./database/mongo.js')
+const m = new M()
 const defaultTodo = [{
         id: 1,
         subject: 'server Eating'
@@ -24,6 +13,19 @@ const defaultTodo = [{
         subject: 'server Playing'
     }
 ]
+
+const express = require('express')
+const app = express()
+const path = require('path')
+const bodyParser = require('body-parser')
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+    extended: false
+}))
+
+let todos = []
+const public = path.join(__dirname, '/')
+app.use('/', express.static(public))
 
 function rs() {
     todos = defaultTodo
@@ -45,6 +47,8 @@ app.delete('/api/todo/:id', function(req, res) {
     // rs()
 })
 app.get('/api/todos', function(req, res) {
+    // const mongotodos = await m.allDoc()
+    // res.end(JSON.stringify(mongotodos))
     res.end(JSON.stringify(todos))
 })
 app.post('/api/todo', function(req, res) {
