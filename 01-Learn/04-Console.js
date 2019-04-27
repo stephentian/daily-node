@@ -47,3 +47,36 @@ while (i++ < 1000000) {
 
 }
 console.timeEnd('cost'); // 输出相同变量, 输出时间差
+
+
+
+// 三
+
+// 断言. 主要做单元测试
+// console.assert()
+
+// 如果表达式为 true, 就什么也不发生
+// 如果表达式为 false, 就报错
+// console.assert(1 == 1, '错误')
+
+function sum(a, b) {
+  return a + b
+}
+console.assert(sum(1, 2) == 4, '错误')
+
+
+
+// 四
+
+// 列出对象结构
+let a = { name: 'Stephen', age: 18, home: { name: '赣州' } }
+console.dir(a)
+// 类似
+// console.log(a)
+
+
+
+// 五
+
+// 跟踪当前代码的调用栈
+console.trace()
