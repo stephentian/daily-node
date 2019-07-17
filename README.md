@@ -12,19 +12,20 @@
 
 
 ### Node 是什么？
+> Node.js is Javascript runtime built on Chrome's V8
 
-- Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境, 让 JavaScript 的执行效率有低端的 C 语言的相近的执行效率
+- Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境(运行时), 让 JavaScript 的执行效率有低端的 C 语言的相近的执行效率
 - Node.js 使用一个事件驱动、非阻塞 I/O 的模型, 使其轻量又高效
 - Node.js 的包管理器 npm, 是全球最大的开源库生态系统
 
 
 ### Node 解决的问题
 
+- 对前端而言, 统一语言, 有更好的开发体验
 - 提供一种简单的, 用于创建高性能服务器的开发工具
 - Web 服务器的瓶颈在于并发的用户量, 对比 Java 和 PHP 的实现
 
 **常见的 Web 服务器**:
-
 apache, resin, tomcat, iis(windows)
 
 客户端访问服务器, Web 服务器会开辟一个线程, 线程负责处理客户端请求.
@@ -71,8 +72,6 @@ java 中锁的实现：当多个线程访问同一个资源的时候, 会加锁;
 Web Worker 多线程:
 1. 完全受主线程控制
 2. 不能操作 DOM
-
-
 
 #### 2. 浏览器模型
 
