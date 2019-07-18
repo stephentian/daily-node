@@ -41,14 +41,18 @@ node --inspect hello.js
 
 官网地址: [调试指南](https://nodejs.org/zh-cn/docs/guides/debugging-getting-started/)
 
-
-
 ---
 
 ## exports 和 module.exports
 
-
-
+require 时只有 module.exports 这个对象, 它不使用 exports 对象,
+而我们编写模块的时候用到的 exports 对象实际是对 module.exports 的引用。
+即：
+```
+var exports = module.exports
+// exports 和 module.exports 属于 Object, 引用类型
+```
+所以 module.exports 可以赋值操作, exports 赋值操作就和 module.exports 失去联系
 
 ## require 特性
 
