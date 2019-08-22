@@ -64,3 +64,37 @@ module.exports = {
   }
 }
 ```
+
+### 模块(module)
+
+每一个文件可以称为模块，
+每一个 `import`, `require`, `@import`, `img url`等引入的文件。
+
+### 代码块(chunk)
+
+一个 Chunk 由多个模块组合而成，用于代码合并与分割。
+
+### 模块转换器(loader)
+
+loader 用于对模块的源码进行转换。
+loader 将文件从不同的语言，或者内联图像转换为 data URL。
+
+比如 webpack 对每个 `.css` 使用 `css-loader`, 以及对所有 `ts` 文件使用 `ts-loader`
+```
+// webpack.config.js
+
+module.exports = {
+  module: {
+    rules: [
+      { test: /\.css$/, use: 'css-loader'},
+      { test: /\.ts$/, use: 'ts-loader'}
+    ]
+  }
+}
+```
+
+### 插件(plugins)
+
+插件是 webpack 的支柱功能。
+插件的目的在于解决 loader 无法实现的功能。
+在 Webpack 构建流程中的特定时机注入插件来改变构建结果或做你想要的事情。
